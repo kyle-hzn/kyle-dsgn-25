@@ -1,31 +1,64 @@
-# Maps
-assets/css/*.map
+# ======================================
+# WordPress Project .gitignore
+# ======================================
 
-# Apache
-.htaccess
-.htpasswd
-
-# WordPress
-wp-config.php
-*.sql
-
-# PHP
-vendor/
-
-# Node.js
-node_modules/
-
-# Logfiles and tempfiles
-/log/*
-!/log/.keep
-/tmp
-*.log
-
-# Other unneeded files
-doc/
-*.swp
-*~
-.project
+# OS / Editor junk
 .DS_Store
-.idea
-.secret
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+*.swp
+*.swo
+*.log
+*.tmp
+
+# Node / Build
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build / Cache
+/dist
+/build
+.cache
+/.parcel-cache
+/.next
+/.nuxt
+/.vercel
+/.vscode
+/.idea
+
+# WordPress core (don’t commit WP itself, only your theme/plugin)
+wp-admin/
+wp-includes/
+license.txt
+readme.html
+
+# wp-content: keep themes/plugins you develop, ignore others
+wp-content/uploads/
+wp-content/cache/
+wp-content/backups/
+wp-content/upgrade/
+
+# Ignore all plugins except custom ones (uncomment if needed)
+# wp-content/plugins/*
+# !wp-content/plugins/my-custom-plugin/
+
+# Ignore all themes except your custom one (replace 'kyle-dsgn-25')
+wp-content/themes/*
+!wp-content/themes/kyle-dsgn-25/
+
+# Composer
+vendor/
+composer.lock
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
