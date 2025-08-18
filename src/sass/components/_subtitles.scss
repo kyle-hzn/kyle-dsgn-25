@@ -1,0 +1,12 @@
+@use '../global' as *;
+
+.subtitle {
+	border-top: 1px solid $graphic-default;
+	padding-top: 12px;
+
+	&__text {
+		@include body-m;
+		color: $text-secondary;
+		text-transform: uppercase;
+	}
+}

@@ -26,9 +26,11 @@ $breakpoint-mobile: 768px;
 	font-size: 96px;
 	font-weight: $font-weight-medium;
 	letter-spacing: -0.05em;
+	line-height: 105.6px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 48px;
+		line-height: 52.8px;
 	}
 }
 
@@ -37,9 +39,11 @@ $breakpoint-mobile: 768px;
 	font-size: 64px;
 	font-weight: $font-weight-medium;
 	letter-spacing: -0.05em;
+	line-height: 70.4px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 36px;
+		line-height: 39.6px;
 	}
 }
 
@@ -48,9 +52,11 @@ $breakpoint-mobile: 768px;
 	font-size: 36px;
 	font-weight: $font-weight-medium;
 	letter-spacing: -0.04em;
+	line-height: 39.6px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 24px;
+		line-height: 26.4px;
 	}
 }
 
@@ -59,9 +65,11 @@ $breakpoint-mobile: 768px;
 	font-size: 24px;
 	font-weight: $font-weight-medium;
 	letter-spacing: -0.05em;
+	line-height: 26.4px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 18px;
+		line-height: 20px;
 	}
 }
 
@@ -70,9 +78,11 @@ $breakpoint-mobile: 768px;
 	font-size: 20px;
 	font-weight: $font-weight-medium;
 	letter-spacing: -0.05em;
+	line-height: 22px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 16px;
+		line-height: 18px;
 	}
 }
 
@@ -89,7 +99,7 @@ $breakpoint-mobile: 768px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 14px;
-		line-height: 24px;
+		line-height: 20px;
 	}
 }
 
@@ -101,6 +111,7 @@ $breakpoint-mobile: 768px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 14px;
+		line-height: 20px;
 	}
 }
 
@@ -109,9 +120,11 @@ $breakpoint-mobile: 768px;
 	font-size: 14px;
 	font-weight: $font-weight-regular;
 	letter-spacing: -0.04em;
+	line-height: 16.8px;
 
 	@media (max-width: $breakpoint-mobile) {
 		font-size: 12px;
+		line-height: 13.4px;
 	}
 }
 

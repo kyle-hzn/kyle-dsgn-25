@@ -1,0 +1,11 @@
+@use '../global' as *;
+
+.card {
+	border-radius: 16px;
+	box-sizing: border-box;
+	padding: 32px;
+
+	&--primary {
+		background-color: $surface-background;
+	}
+}

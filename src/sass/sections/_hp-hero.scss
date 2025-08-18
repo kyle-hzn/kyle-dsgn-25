@@ -1,0 +1,40 @@
+.hp-hero__marquee__title {
+	line-height: 72px;
+}
+
+.brand-marquee {
+	.swiper-wrapper {
+		transition-timing-function: linear; // smooth animation
+	}
+}
+
+.swiper {
+	overflow: hidden;
+	width: 100%;
+}
+
+.swiper-wrapper {
+	display: flex;
+}
+
+.swiper-slide {
+	align-items: center;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	width: auto; // slides size themselves naturally
+}
+
+.image-spin {
+	animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(-360deg);
+	}
+}

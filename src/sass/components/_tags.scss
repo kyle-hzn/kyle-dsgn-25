@@ -1,0 +1,14 @@
+@use '../global' as *;
+
+.tag {
+	border-radius: 9999px;
+	padding: 4px 12px;
+	text-transform: capitalize;
+
+	&--primary {
+		@include body-m;
+		background-color: $surface-background-80;
+		border: 1px solid $graphic-default;
+		color: $text-highlight;
+	}
+}
