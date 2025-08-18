@@ -1,0 +1,11 @@
+@use '../global' as *;
+
+.header {
+	background-color: $surface-background;
+
+	&__logo {
+		background-color: $surface-primary;
+		border-radius: 16px;
+		padding: 12px;
+	}
+}

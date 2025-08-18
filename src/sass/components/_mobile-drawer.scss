@@ -1,0 +1,11 @@
+@use '../global' as *;
+
+.mobile-drawer {
+	backdrop-filter: blur(25px);
+	background-color: $surface-background-80;
+}
+
+.no-scroll {
+	height: 100vh;
+	overflow: hidden;
+}

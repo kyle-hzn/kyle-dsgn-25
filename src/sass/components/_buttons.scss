@@ -1,0 +1,15 @@
+@use '../global' as *;
+
+.btn {
+	&--primary {
+		@include body-m;
+		align-items: center;
+		background-color: $surface-primary;
+		border-radius: 16px;
+		display: inline-flex;
+		gap: 8px;
+		justify-content: center;
+		min-height: 56px;
+		padding: 8px 24px;
+	}
+}

@@ -1,0 +1,104 @@
+// Surface Colors
+// -----------------------------------------------------------------------------
+$surface-background: #f0eef0;
+$surface-background-80: rgba(240, 238, 240, 0.8);
+$surface-default: #fefefe;
+$surface-primary: #c1fd3a;
+$surface-primary-hover: #a6e22f;
+$surface-dark: #212121;
+$surface-info: #d3e2f6;
+$surface-critical: #f7c7c3;
+$surface-success: #c7eacf;
+
+// Text Colors
+// -----------------------------------------------------------------------------
+$text-highlight: #212121;
+$text-highlight-light: #f5f5f5;
+$text-secondary: #5c5c5c;
+$text-secondary-light: #b3b3b3;
+$text-placeholder: #9e9e9e;
+
+// Text colors
+.text-highlight {
+	color: #212121;
+}
+
+.text-highlight-light {
+	color: #f5f5f5;
+}
+
+.text-secondary {
+	color: #5c5c5c;
+}
+
+.text-secondary-light {
+	color: #b3b3b3;
+}
+
+.text-placeholder {
+	color: #9e9e9e;
+}
+
+// Icon Colors
+// -----------------------------------------------------------------------------
+$icon-default: #212121;
+$icon-light: #f7f7f7;
+
+// Graphic Colors
+// -----------------------------------------------------------------------------
+$graphic-default: #d4d4d4;
+$graphic-default-light: #3a3a3a;
+
+// =============================================================================
+// COLOR MAPS FOR DYNAMIC ACCESS
+// =============================================================================
+
+$surface-colors: (
+	background: $surface-background,
+	background-80: $surface-background-80,
+	default: $surface-default,
+	primary: $surface-primary,
+	primary-hover: $surface-primary-hover,
+	dark: $surface-dark,
+	info: $surface-info,
+	critical: $surface-critical,
+	success: $surface-success
+);
+
+$text-colors: (
+	highlight: $text-highlight,
+	highlight-light: $text-highlight-light,
+	secondary: $text-secondary,
+	secondary-light: $text-secondary-light,
+	placeholder: $text-placeholder
+);
+
+$icon-colors: (
+	default: $icon-default,
+	light: $icon-light
+);
+
+$graphic-colors: (
+	default: $graphic-default,
+	default-light: $graphic-default-light
+);
+
+// =============================================================================
+// UTILITY FUNCTIONS
+// =============================================================================
+
+@function surface($color-name) {
+	@return map-get($surface-colors, $color-name);
+}
+
+@function text($color-name) {
+	@return map-get($text-colors, $color-name);
+}
+
+@function icon($color-name) {
+	@return map-get($icon-colors, $color-name);
+}
+
+@function graphic($color-name) {
+	@return map-get($graphic-colors, $color-name);
+}

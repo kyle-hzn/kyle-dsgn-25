@@ -1,0 +1,187 @@
+// =============================================================================
+// FIGMA TYPOGRAPHY TOKENS - SCSS VARIABLES & MIXINS
+// =============================================================================
+
+// Font Families
+// -----------------------------------------------------------------------------
+$font-family-heading: 'Bricolage Grotesque', sans-serif;
+$font-family-body: 'DM Sans', sans-serif;
+
+// Font Weights
+// -----------------------------------------------------------------------------
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Breakpoints
+// -----------------------------------------------------------------------------
+$breakpoint-mobile: 768px;
+
+// =============================================================================
+// RESPONSIVE HEADING STYLES (ALWAYS RESPONSIVE)
+// =============================================================================
+
+@mixin heading-xxl {
+	font-family: $font-family-heading;
+	font-size: 96px;
+	font-weight: $font-weight-medium;
+	letter-spacing: -0.05em;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 48px;
+	}
+}
+
+@mixin heading-xl {
+	font-family: $font-family-heading;
+	font-size: 64px;
+	font-weight: $font-weight-medium;
+	letter-spacing: -0.05em;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 36px;
+	}
+}
+
+@mixin heading-l {
+	font-family: $font-family-heading;
+	font-size: 36px;
+	font-weight: $font-weight-medium;
+	letter-spacing: -0.04em;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 24px;
+	}
+}
+
+@mixin heading-m {
+	font-family: $font-family-heading;
+	font-size: 24px;
+	font-weight: $font-weight-medium;
+	letter-spacing: -0.05em;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 18px;
+	}
+}
+
+@mixin heading-s {
+	font-family: $font-family-heading;
+	font-size: 20px;
+	font-weight: $font-weight-medium;
+	letter-spacing: -0.05em;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 16px;
+	}
+}
+
+// =============================================================================
+// RESPONSIVE BODY STYLES (ALWAYS RESPONSIVE)
+// =============================================================================
+
+@mixin body-m {
+	font-family: $font-family-body;
+	font-size: 16px;
+	font-weight: $font-weight-regular;
+	letter-spacing: -0.05em;
+	line-height: 28px;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 14px;
+		line-height: 24px;
+	}
+}
+
+@mixin body-m-bold {
+	font-family: $font-family-body;
+	font-size: 16px;
+	font-weight: $font-weight-bold;
+	letter-spacing: -0.05em;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 14px;
+	}
+}
+
+@mixin body-s {
+	font-family: $font-family-body;
+	font-size: 14px;
+	font-weight: $font-weight-regular;
+	letter-spacing: -0.04em;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 12px;
+	}
+}
+
+// =============================================================================
+// UTILITY CLASSES (ALWAYS RESPONSIVE)
+// =============================================================================
+
+.heading-xxl { @include heading-xxl; }
+.heading-xl { @include heading-xl; }
+.heading-l { @include heading-l; }
+.heading-m { @include heading-m; }
+.heading-s { @include heading-s; }
+
+.body-m { @include body-m; }
+.body-m-bold { @include body-m-bold; }
+.body-s { @include body-s; }
+
+// =============================================================================
+// FONT SIZE REFERENCE
+// =============================================================================
+
+/*
+DESKTOP (>768px) → MOBILE (≤768px)
+─────────────────────────────────────
+heading-xxl: 96px → 48px
+heading-xl:  64px → 36px
+heading-l:   36px → 24px
+heading-m:   24px → 18px
+heading-s:   20px → 16px
+
+body-m:      16px → 14px
+body-m-bold: 16px → 14px
+body-s:      14px → 12px
+*/
+
+// =============================================================================
+// USAGE EXAMPLES
+// =============================================================================
+
+/*
+// All mixins are now responsive by default:
+.hero-title {
+  @include heading-xxl; // 96px desktop, 48px mobile
+  color: $text-highlight;
+}
+
+.section-title {
+  @include heading-l; // 36px desktop, 24px mobile
+  color: $text-secondary;
+}
+
+.body-text {
+  @include body-m; // 16px desktop, 14px mobile
+  color: $text-secondary;
+}
+
+// Component-specific typography:
+.card {
+  &__title {
+    @include heading-m; // 24px desktop, 18px mobile
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    @include body-s; // 14px desktop, 12px mobile
+    color: $text-secondary-light;
+  }
+}
+
+// Utility classes in HTML (also responsive):
+<h1 class="heading-xxl">Responsive Title</h1>
+<p class="body-m">Responsive paragraph text</p>
+*/

@@ -1,0 +1,6 @@
+@use 'variables' as *;
+
+body {
+	background-color: $surface-dark;
+	overflow-x: hidden;
+}
