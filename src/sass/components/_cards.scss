@@ -1,11 +1,95 @@
 @use '../global' as *;
 
 .card {
+	border: 1px solid $graphic-default;
 	border-radius: 16px;
 	box-sizing: border-box;
 	padding: 32px;
+	@media (max-width: 767px) {
+		padding: 24px;
+	}
 
 	&--primary {
 		background-color: $surface-background;
 	}
+
+	&--work {
+		align-items: flex-end;
+		display: flex;
+		flex-shrink: 0;
+	}
+}
+
+.card--work {
+	&--overlay {
+		background: linear-gradient(
+			180deg,
+			rgba(33, 33, 33, 0) 0%,
+			rgba(33, 33, 33, 0.5) 71%
+		);
+		inset: 0;
+		pointer-events: none;
+		position: absolute;
+		z-index: 20;
+	}
+}
+
+.card--work {
+	overflow: hidden;
+	position: relative;
+
+	&--img {
+		transition: transform 0.3s ease;
+	}
+
+	&__title,
+	.tag {
+		transition: color 0.3s ease;
+	}
+
+	&__keystat {
+		opacity: 0;
+		transition: opacity 0.3s ease, color 0.3s ease;
+	}
+
+	&:hover {
+		cursor: none;
+
+		.card--work__title {
+			color: $text-highlight;
+		}
+
+		.tag {
+			color: $text-highlight;
+		}
+
+		.card--work__keystat {
+			opacity: 1;
+		}
+
+		.card--work--img {
+			transform: scale(1.05);
+		}
+
+		.card--work--overlay {
+			clip-path: circle(150% at 50% 50%);
+		}
+	}
+}
+
+.card--work--gradient {
+	background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+	inset: 0;
+	pointer-events: none;
+	position: absolute;
+	z-index: 20;
+}
+
+.card--work--overlay {
+	background: $surface-primary;
+	clip-path: circle(0% at 50% 50%);
+	inset: 0;
+	pointer-events: none;
+	position: absolute;
+	transition: clip-path 0.3s ease;
 }

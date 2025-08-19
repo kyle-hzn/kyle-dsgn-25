@@ -114,3 +114,11 @@ add_action(
 		}
 	}
 );
+
+// Allow SVG uploads
+function kyle_dsgn_allow_svg_upload( $mimes ) {
+    $mimes['svg']  = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'kyle_dsgn_allow_svg_upload' );

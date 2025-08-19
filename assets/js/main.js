@@ -4646,4 +4646,37 @@ new Swiper(".brand-marquee", {
   simulateTouch: false,
   grabCursor: false
 });
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll(".location-time");
+  elements.forEach((el) => {
+    const tz = el.getAttribute("data-timezone");
+    const timeSpan = el.querySelector(".time");
+    function updateTime() {
+      const now2 = /* @__PURE__ */ new Date();
+      const options = {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+        timeZone: tz
+      };
+      timeSpan.textContent = new Intl.DateTimeFormat([], options).format(now2);
+    }
+    updateTime();
+    setInterval(updateTime, 1e3);
+  });
+});
+const cursor = document.querySelector(".custom-cursor");
+const cards = document.querySelectorAll(".card--work");
+cards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    cursor.classList.add("active");
+  });
+  card.addEventListener("mouseleave", () => {
+    cursor.classList.remove("active");
+  });
+  card.addEventListener("mousemove", (e) => {
+    cursor.style.left = `${e.clientX - 32}px`;
+    cursor.style.top = `${e.clientY - 32}px`;
+  });
+});
 //# sourceMappingURL=main.js.map

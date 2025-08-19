@@ -38,3 +38,44 @@ const marquee = new Swiper('.brand-marquee', {
   simulateTouch: false,
   grabCursor: false,
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".location-time");
+
+  elements.forEach(el => {
+    const tz = el.getAttribute("data-timezone");
+    const timeSpan = el.querySelector(".time");
+
+    function updateTime() {
+      const now = new Date();
+      const options = {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+        timeZone: tz
+      };
+      timeSpan.textContent = new Intl.DateTimeFormat([], options).format(now);
+    }
+
+    updateTime(); // initial render
+    setInterval(updateTime, 1000); // refresh every second
+  });
+});
+
+const cursor = document.querySelector('.custom-cursor');
+const cards = document.querySelectorAll('.card--work');
+
+cards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    cursor.classList.add('active');
+  });
+
+  card.addEventListener('mouseleave', () => {
+    cursor.classList.remove('active');
+  });
+
+  card.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.clientX - 32}px`; // center cursor
+    cursor.style.top = `${e.clientY - 32}px`;
+  });
+});
