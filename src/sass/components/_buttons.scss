@@ -4,14 +4,13 @@
 	&--primary {
 		@include body-m;
 		align-items: center;
-
 		background-color: $surface-primary;
 		border-radius: 16px;
 		display: inline-flex;
 		gap: 8px;
 		justify-content: center;
 		min-height: 56px;
-		overflow: hidden; // hides circle overflow
+		overflow: hidden;
 		padding: 8px 24px;
 		position: relative;
 		z-index: 0;
@@ -48,5 +47,17 @@
 		&:hover {
 			background-color: $surface-primary-hover;
 		}
+	}
+
+	&--icon {
+		align-items: center;
+		background-color: $surface-primary;
+		border-radius: 16px;
+		display: inline-flex;
+		justify-content: center;
+		overflow: hidden;
+		padding: 8px;
+		position: relative;
+		z-index: 0;
 	}
 }

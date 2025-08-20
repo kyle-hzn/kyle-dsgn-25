@@ -1,0 +1,30 @@
+@use '../global' as *;
+
+.accordions {
+	border: 1px solid $graphic-default;
+	border-radius: 16px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	transition: background 0.2s ease;
+
+	@media (max-width: 767px) {
+		padding: 16px;
+	}
+
+	.accordion__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		padding-top: 8px;
+	}
+}
+
+.services-offers__accordions:hover .accordion {
+	opacity: 0.5;
+}
+
+.services-offers__accordions:hover .accordion:hover {
+	opacity: 1;
+}
