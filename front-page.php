@@ -66,11 +66,9 @@ if ($HpHero): ?>
 					</p>
 				<?php endif; ?>
 				<?php if ( !empty($HpHero['hp_hero_mail']) ) : ?>
-					<p class="body-m text-highlight">
-						<a href="mailto:<?php echo esc_attr($HpHero['hp_hero_mail']); ?>?subject=Freelance%20Inquiry">
-							<?php echo esc_html($HpHero['hp_hero_mail']); ?>
-						</a>
-					</p>
+					<a class="body-m text-highlight" href="mailto:<?php echo esc_attr($HpHero['hp_hero_mail']); ?>?subject=Freelance%20Inquiry">
+						<?php echo esc_html($HpHero['hp_hero_mail']); ?>
+					</a>
 				<?php endif; ?>
 			</div>
 		</div>

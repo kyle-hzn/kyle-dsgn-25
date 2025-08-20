@@ -15,4 +15,30 @@
 		border-radius: 16px;
 		padding: 12px;
 	}
+
+	&__badge {
+		background-color: $surface-dark;
+		border-radius: 9999px;
+		color: $text-secondary-light;
+		font-family: $font-family-body;
+		font-size: 12px;
+		line-height: 12px;
+		padding: 2px 12px;
+		position: absolute;
+		right: -8px;
+		top: 0;
+	}
+
+	&__badge-mobile {
+		background-color: $surface-dark;
+		border-radius: 9999px;
+		color: $text-secondary-light;
+		font-family: $font-family-body;
+		font-size: 12px;
+		line-height: 12px;
+		padding: 2px 12px;
+		position: absolute;
+		right: -32px;
+		top: 0;
+	}
 }

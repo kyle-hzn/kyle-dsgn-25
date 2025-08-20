@@ -5,7 +5,12 @@
  * @package Bathe
  */
 
+define( 'THEME_PATH',      get_template_directory() );
 define( 'THEME_IMG_PATH', get_stylesheet_directory_uri() . '/assets/images' );
+
+foreach ( glob( THEME_PATH . "/inc/*.php" ) as $file ) {
+    include_once $file;
+}
 
 /**
  * Set up theme defaults and registers support for various WordPress feaures.
