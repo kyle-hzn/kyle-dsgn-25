@@ -17,7 +17,7 @@
 <body <?php body_class( 'antialiased p-2 overflow-x-hidden' ); ?>>
 <?php wp_body_open(); ?>
 
-<header class="header p-2 rounded-2xl flex justify-between items-center relative z-50">
+<header class="header p-2 rounded-2xl flex justify-between items-center z-50">
 	<div class="flex items-center header__left gap-2">
 		<a class="header__logo" href="<?php echo home_url(); ?>">
 			<img src="<?php echo THEME_IMG_PATH; ?>/kyle-dsgn-logo.svg" alt="Logo KYLE-DSGN"/>

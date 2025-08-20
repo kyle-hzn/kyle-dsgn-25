@@ -12,12 +12,12 @@
 $HpHero = get_field('hp_hero');
 
 if ($HpHero): ?>
-<div class="hp-hero flex flex-col gap-2 h-[calc(100vh-88px)] mb-2">
+<div class="hp-hero flex flex-col gap-2 h-[calc(100vh-80px)] mb-2 mt-[72px]">
 	<div class="hp-hero-visual flex-1 overflow-hidden rounded-2xl mt-2">
 		<img class="object-cover w-full h-full" src="<?php echo THEME_IMG_PATH; ?>/distortion.jpg" alt="hero visual"/>
 	</div>
 	<!-- BRAND MARQUEE -->
-	<div class="hp-hero__marquee overflow-x-hidden">
+	<div class="hp-hero__marquee overflow-hidden">
 		<div class="brand-marquee">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -128,67 +128,57 @@ if ($HpWorks): ?>
 		<?php echo $HpWorks['hp_works_title']; ?>
 	</h2>
 </div>
-<div class="hp-works grid grid-cols-1 md:grid-cols-2 gap-2">
+<div class="hp-works grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
 <div class="custom-cursor">
 	<img src="<?php echo THEME_IMG_PATH; ?>/arrow-up-right.svg" alt="Arrow up icon"/>
 </div>
-  <?php
-    $args = [
-      'post_type'      => 'post',
-      'posts_per_page' => 6,
-    ];
-    $query = new WP_Query($args);
-
-    if ($query->have_posts()) :
-      while ($query->have_posts()) : $query->the_post(); ?>
-
-        <a href="<?php the_permalink(); ?>" class="card card--work h-[450px] relative overflow-hidden flex flex-col justify-between group">
-			<!-- Featured Image -->
-			<?php if (has_post_thumbnail()) : ?>
-				<?php the_post_thumbnail('medium', [
-				'class' => 'card--work--img absolute inset-0 w-full h-full object-cover z-10'
-				]); ?>
-			<?php endif; ?>
-
-			  <!-- Gradient Overlay (always visible) -->
-			<div class="card--work--gradient absolute inset-0 z-20 pointer-events-none"></div>
-
-			<!-- Hover Overlay (clip-path animation) -->
-			<div class="card--work--overlay absolute inset-0 z-30 pointer-events-none"></div>
-
-			<div class="flex justify-between">
-				<!-- Key Stat -->
-				<?php
-				$work_intro = get_field('work_intro');
-				if ($work_intro && !empty($work_intro['work_intro_keystat_title'])) : ?>
-				<p class="card--work__keystat heading-xl text-highlight relative z-30">
-					<?php echo esc_html($work_intro['work_intro_keystat_title']); ?>
-				</p>
-				<?php endif; ?>
-
-				<!-- Category -->
-				<?php
-				$categories = get_the_category();
-				if (!empty($categories)) : ?>
-				<p class="tag tag--primary z-30">
-					<?php echo esc_html($categories[0]->name); ?>
-				</p>
-				<?php endif; ?>
-			</div>
-
-			<!-- Post Title -->
-			<h3 class="card--work__title heading-l text-highlight-light relative z-30">
-				<?php the_title(); ?>
-			</h3>
-			</a>
-
-      <?php endwhile;
-      wp_reset_postdata();
-    else : ?>
-      <p>No posts found.</p>
-  <?php endif; ?>
+<?php get_template_part( 'template-parts/loop' ); ?>
 </div>
 <?php endif; ?>
 <!-- END CASE STUDIES -->
+<!-- PARTNERS -->
+<?php
+$HpPartners = get_field('hp_partners');
+
+if ($HpPartners): ?>
+<div class="card card--primary flex flex-col md:flex-row gap-4 mb-2">
+	<div class="md:w-1/2">
+		<h3 class="heading-xl text-highlight">
+			<?php echo $HpPartners['hp_partners_title']; ?>
+		</h3>
+	</div>
+	<div class="flex flex-col gap-6 md:w-1/2">
+		<!-- TITLE -->
+		<div class="body-m text-highlight">
+			<?php echo wp_kses_post( $HpServices['hp_services_text'] ); ?>
+		</div>
+		<div class="flex flex-col gap-4">
+			<!-- SUBTITLE -->
+			<h4 class="heading-m text-highlight">
+				<?php echo $HpPartners['hp_partners_subtitle']; ?>
+			</h4>
+			<!-- SLIDER -->
+			<div class="partners-marquee swiper overflow-x-hidden">
+				<div class="swiper-wrapper">
+					<?php foreach($HpPartners['hp_partners_logos'] as $logo): ?>
+						<div class="swiper-slide">
+							<div class="partners-marquee__card">
+								<img class="h-8 w-auto" src="<?php echo esc_url($logo['hp_partners_logos_img']['url']); ?>" alt="<?php echo esc_attr($logo['hp_partners_logos_img']['alt']); ?>" />
+							</div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<!-- END SLIDER -->
+			<!-- CTA -->
+			<a href="<?php echo esc_url($HpPartners['hp_partners_cta']['url']); ?>" class="btn--primary md:w-fit">
+				<?php echo esc_html($HpPartners['hp_partners_cta']['title']); ?>
+				<img src="<?php echo THEME_IMG_PATH; ?>/arrow-up-right.svg" alt="Arrow up icon"/>
+			</a>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+<!-- END PARTNERS -->
 
 <?php get_footer(); ?>

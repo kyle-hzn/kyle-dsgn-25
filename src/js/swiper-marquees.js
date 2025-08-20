@@ -1,0 +1,40 @@
+// Swiper marquees
+import Swiper from 'swiper';
+import { Autoplay } from 'swiper/modules';
+
+// Brand marquee
+const marquee = new Swiper('.brand-marquee', {
+  modules: [Autoplay],
+  slidesPerView: 'auto',
+  loop: true,
+  speed: 5000, // higher = slower
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
+  spaceBetween: 64,
+  allowTouchMove: false,
+  simulateTouch: false,
+  grabCursor: false,
+});
+
+// Partners marquee
+const partnersMarquee = new Swiper('.partners-marquee', {
+  modules: [Autoplay],
+  slidesPerView: 1.5,
+  loop: true,
+  speed: 5000, // higher = slower
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
+  spaceBetween: 16,
+  allowTouchMove: false,
+  simulateTouch: false,
+  grabCursor: false,
+  breakpoints: {
+    768: {
+      slidesPerView: 3.5,
+    }
+  }
+});

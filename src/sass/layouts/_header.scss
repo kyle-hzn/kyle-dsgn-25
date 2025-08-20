@@ -2,6 +2,13 @@
 
 .header {
 	background-color: $surface-background;
+	left: 0;
+	left: 8px;
+	position: fixed;
+	right: 8px;
+	top: 8px;
+	transition: transform 0.3s ease-in-out;
+	z-index: 1000;
 
 	&__logo {
 		background-color: $surface-primary;

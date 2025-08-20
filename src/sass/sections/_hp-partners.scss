@@ -1,0 +1,32 @@
+@use '../global' as *;
+
+.partners-marquee {
+	width: 100%; // Ensure container takes full width
+
+	&.swiper {
+		overflow: hidden; // Essential for Swiper
+	}
+
+	.swiper-wrapper {
+		transition-timing-function: linear; // smooth animation
+	}
+
+	.swiper-slide {
+		align-items: center;
+		display: flex;
+		flex-shrink: 0;
+		justify-content: center;
+		width: 180px; // Fixed width for consistent card sizing
+	}
+
+	&__card {
+		align-items: center;
+		border: 1px solid $graphic-default;
+		border-radius: 16px;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		padding: 32px;
+		width: 100%;
+	}
+}
