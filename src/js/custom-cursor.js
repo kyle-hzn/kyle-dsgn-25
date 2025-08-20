@@ -16,3 +16,4 @@ cards.forEach(card => {
     cursor.style.top = `${e.clientY - 32}px`;
   });
 });
+

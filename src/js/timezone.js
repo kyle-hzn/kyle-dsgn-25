@@ -21,3 +21,4 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(updateTime, 1000); // refresh every second
   });
 });
+

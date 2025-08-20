@@ -38,3 +38,22 @@ const partnersMarquee = new Swiper('.partners-marquee', {
     }
   }
 });
+
+new Swiper('.about-gallery-swiper', {
+  modules: [Autoplay],
+  slidesPerView: 'auto',
+  spaceBetween: 8,
+  loop: true,
+  speed: 5000, // Reduced speed for smoother animation
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+    reverseDirection: false, // Set to true for right-to-left
+  },
+  allowTouchMove: false,
+  simulateTouch: false,
+  grabCursor: false,
+  loopAdditionalSlides: 2, // Helps with loop smoothness
+  watchSlidesProgress: true,
+});
+
