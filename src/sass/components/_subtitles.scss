@@ -10,3 +10,14 @@
 		text-transform: uppercase;
 	}
 }
+
+.subtitle-light {
+	border-top: 1px solid $graphic-default-light;
+	padding-top: 12px;
+
+	&__text {
+		@include body-m;
+		color: $text-highlight-light;
+		text-transform: uppercase;
+	}
+}

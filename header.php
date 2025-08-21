@@ -19,7 +19,6 @@
 <?php
 	$header = get_field('header', 'option');
 
-	// 🔹 Adjust post type slug here: 'project' if you registered CPT, 'post' if normal blog posts
 	$project_counts = wp_count_posts('project');
 	$project_count  = isset($project_counts->publish) ? $project_counts->publish : 0;
 

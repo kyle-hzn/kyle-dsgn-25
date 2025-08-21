@@ -1,0 +1,25 @@
+@use '../global' as *;
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	li {
+		display: flex;
+		gap: 8px;
+
+		&::before {
+			color: $text-highlight;
+			content: '◆';
+			flex-shrink: 0;
+			font-size: 20px;
+			line-height: 20px;
+			margin-top: 4px;
+		}
+
+		span {
+			display: inline-block;
+		}
+	}
+}

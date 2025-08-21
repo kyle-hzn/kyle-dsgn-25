@@ -18,6 +18,10 @@
 		display: flex;
 		flex-shrink: 0;
 	}
+
+	&--keystat {
+		background-color: $surface-default;
+	}
 }
 
 .card--work {
