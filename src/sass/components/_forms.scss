@@ -1,0 +1,170 @@
+@use '../global' as *;
+
+.form {
+	&__label {
+		@include body-s;
+		color: $text-secondary;
+	}
+
+	&__input {
+		@include body-m;
+		background-color: $surface-default;
+		border: 1px solid $graphic-default;
+		border-radius: 12px;
+		padding: 12px;
+	}
+}
+
+.wpforms-field-label {
+	@include body-s;
+	color: $text-secondary;
+}
+
+.wpforms-field {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.wpforms-field-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.wpforms-field {
+	flex: 1 1 calc(50% - 16px); // 2 columns on desktop
+
+	@media (max-width: 767px) {
+		flex: 0 0 100%;   // ✅ force 100% width
+		max-width: 100%;  // ✅ ensure no overflow
+	}
+}
+
+.wpforms-field:last-child {
+	flex: 1 1 100%;
+}
+
+.wpforms-field-medium {
+	@include body-m;
+	appearance: none;
+	appearance: none; /* Safari, Chrome */
+	appearance: none;
+	background-color: $surface-default;
+	border: 1px solid $graphic-default;
+	border-radius: 12px;
+	line-height: 24px !important;
+	min-height: 48px;
+	padding: 12px;
+
+	&::placeholder {
+		color: $text-placeholder;
+	}
+
+	&:focus {
+		outline: 1px solid $graphic-default-light;
+	}
+}
+
+.wpforms-label-hide {
+	display: none;
+}
+
+.wpforms-field-label-inline {
+	@include body-m;
+	color: $text-secondary;
+	line-height: 20px;
+}
+
+.wpforms-error {
+	@include body-m;
+}
+
+.input__checkbox {
+	margin-bottom: 16px;
+
+	input {
+		appearance: none;
+		background: $surface-default;
+		border: 1px solid $graphic-default;
+		border-radius: 8px;
+		cursor: pointer;
+		display: inline-block;
+		height: 20px;
+		vertical-align: middle;
+		width: 20px;
+
+		&:checked {
+			background: $surface-default url("../../assets/images/check-icon.svg") no-repeat center/contain;
+			border: 2px solid $surface-default;
+		}
+	}
+
+	label {
+		cursor: pointer;
+		margin-left: 8px;
+	}
+}
+
+.wpforms-has-error {
+	em {
+		display: none !important;
+	}
+}
+
+.wpforms-confirmation-container {
+	@include heading-m;
+	align-items: center;
+	color: $text-highlight;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+}
+
+.wpforms-container {
+	height: 100%;
+}
+
+/* Kill default WPForms spinner */
+.wpforms-submit-spinner {
+	display: none !important;
+}
+
+.wpforms-field select {
+	appearance: none;
+	background: $surface-default url("../../assets/images/chevron-down.svg") no-repeat right 12px center / 16px auto;
+	padding-right: 36px;
+}
+
+.wpforms-field textarea {
+	min-height: 120px;
+}
+
+.wpforms-field select .placeholder {
+	color: $text-placeholder !important;
+}
+
+.mailcheck-error {
+	display: none;
+}
+
+.my-spinner {
+	animation: spin 0.6s linear infinite;
+	border: 2px solid $surface-default;
+	border-radius: 50%;
+	border-top-color: transparent;
+	display: none;
+	height: 24px;
+	margin-left: 8px;
+	width: 24px;
+}
+
+.wpforms-submit.loading .my-spinner {
+	display: inline-block;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}

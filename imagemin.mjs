@@ -7,7 +7,7 @@ import imageminSvgo from 'imagemin-svgo';
 const input = process.argv[2];
 const dest = process.argv[3];
 
-if (!input) throw new Error();
+if (!input) throw new Error("No input file specified");
 
 (async () => {
   const files = await imagemin([input], {
@@ -17,7 +17,12 @@ if (!input) throw new Error();
       imageminJpegtran(),
       imageminOptipng(),
       imageminSvgo({
-        plugins: [{ removeViewBox: false }],
+        plugins: [
+          {
+            name: 'removeViewBox',
+            active: false,
+          },
+        ],
       }),
     ],
   });

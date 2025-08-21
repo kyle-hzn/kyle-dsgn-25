@@ -52,23 +52,27 @@ if ($HpHero): ?>
 		<div class="card card--primary hp-hero__cards__contact flex justify-between md:flex-1">
 			<img class="w-16 h-16 image-spin" src="<?php echo $HpHero['hp_hero_jabba']['url']; ?>" alt="<?php echo $HpHero['hp_hero_jabba']['alt']; ?>"/>
 			<div class="flex flex-col gap-2 justify-end items-end">
-				<p class="body-m-bold text-highlight location-time"
-					data-timezone="<?php echo esc_attr($HpHero['hp_hero_location_timezone']); ?>">
-					<?php echo esc_html($HpHero['hp_hero_location']); ?> <span class="body-m time"></span>
-				</p>
-				<?php if ( !empty($HpHero['hp_hero_availability']) && $HpHero['hp_hero_availability'] ) : ?>
-					<p class="body-m text-highlight">
-						<span class="body-m-bold">Available</span> for freelance projects
+				<?php
+				$statusCard = get_field('status_card', 'option');
+				if( $statusCard ): ?>
+					<p class="body-m-bold text-highlight location-time"
+						data-timezone="<?php echo esc_attr($statusCard['hp_hero_location_timezone']); ?>">
+						<?php echo esc_html($statusCard['hp_hero_location']); ?> <span class="body-m time"></span>
 					</p>
-				<?php else : ?>
-					<p class="body-m text-highlight">
-						<span class="body-m-bold">Unavailable</span> for freelance projects
-					</p>
-				<?php endif; ?>
-				<?php if ( !empty($HpHero['hp_hero_mail']) ) : ?>
-					<a class="body-m text-highlight" href="mailto:<?php echo esc_attr($HpHero['hp_hero_mail']); ?>?subject=Freelance%20Inquiry">
-						<?php echo esc_html($HpHero['hp_hero_mail']); ?>
-					</a>
+					<?php if ( !empty($statusCard['hp_hero_availability']) && $statusCard['hp_hero_availability'] ) : ?>
+						<p class="body-m text-highlight">
+							<span class="body-m-bold">Available</span> for freelance projects
+						</p>
+					<?php else : ?>
+						<p class="body-m text-highlight">
+							<span class="body-m-bold">Unavailable</span> for freelance projects
+						</p>
+					<?php endif; ?>
+					<?php if ( !empty($statusCard['hp_hero_mail']) ) : ?>
+						<a class="body-m text-highlight" href="mailto:<?php echo esc_attr($statusCard['hp_hero_mail']); ?>?subject=Freelance%20Inquiry">
+							<?php echo esc_html($statusCard['hp_hero_mail']); ?>
+						</a>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -108,7 +112,7 @@ if ( $HpServices && !empty($HpServices['hp_services_list']) ): ?>
 <?php endif; ?>
 <!-- END SERVICES -->
 <!-- CASE STUDIES -->
- <?php
+<?php
 $HpWorks = get_field('hp_works');
 
 if ($HpWorks): ?>

@@ -4,3 +4,4 @@ import './timezone.js';
 import './custom-cursor.js';
 import './header-scroll.js';
 import './accordions.js';
+import './contact-form.js';
