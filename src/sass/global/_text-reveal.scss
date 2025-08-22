@@ -1,0 +1,15 @@
+/* Hide overflow so lines can slide from below */
+.reveal-text {
+	display: inline-block;
+	overflow: hidden;
+}
+
+.reveal-line {
+	display: block;
+	transform: translateY(100%);
+}
+
+.scale-up {
+	display: inline-block;
+	transform: scale(0); /* initial hidden state */
+}

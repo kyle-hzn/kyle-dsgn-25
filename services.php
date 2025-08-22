@@ -5,7 +5,6 @@
 ?>
 
 <?php get_header(); ?>
-<?php include get_theme_file_path('mobile-drawer.php'); ?>
 
 <!-- INTRO -->
 <?php
@@ -17,10 +16,10 @@ if ($servicesIntro): ?>
     <!-- Left card -->
     <div class="card card--primary flex flex-col md:w-1/2 gap-4">
         <div class="subtitle flex items-center justify-between">
-            <p class="subtitle__text"><?php echo esc_html($servicesIntro['services_intro_subtitle']); ?></p>
-            <div class="tag tag--primary"><?php echo esc_html($servicesIntro['services_intro_subtitle_tag']); ?></div>
+            <p class="subtitle__text reveal-text on-scroll"><?php echo esc_html($servicesIntro['services_intro_subtitle']); ?></p>
+            <div class="tag tag--primary scale-up on-scroll"><?php echo esc_html($servicesIntro['services_intro_subtitle_tag']); ?></div>
         </div>
-        <h2 class="heading-m text-highlight"><?php echo esc_html($servicesIntro['services_intro_text']); ?></h2>
+        <h2 class="heading-m text-highlight reveal-text immediate"><?php echo esc_html($servicesIntro['services_intro_text']); ?></h2>
     </div>
 
     <!-- Right image -->
@@ -34,25 +33,22 @@ if ($servicesIntro): ?>
 <?php endif; ?>
 <!-- END INTRO -->
 <!-- MARQUEE -->
-<section class="brand-marquee mb-2 overflow-hidden">
-	<div class="swiper-wrapper">
-		<div class="swiper-slide">
+<div class="brand-marquee mb-2">
+	<div class="marquee-track gap-16">
+		<div class="marquee-item">
 			<p class="hp-hero__marquee__title heading-xxl text-highlight-light">THIS IS THE WAY</p>
 		</div>
-		<div class="swiper-slide">
+		<div class="marquee-item">
 			<p class="hp-hero__marquee__title heading-xxl text-highlight-light">THIS IS THE WAY</p>
 		</div>
-		<div class="swiper-slide">
+		<div class="marquee-item">
 			<p class="hp-hero__marquee__title heading-xxl text-highlight-light">THIS IS THE WAY</p>
 		</div>
-		<div class="swiper-slide">
-			<p class="hp-hero__marquee__title heading-xxl text-highlight-light">THIS IS THE WAY</p>
-		</div>
-		<div class="swiper-slide">
+		<div class="marquee-item">
 			<p class="hp-hero__marquee__title heading-xxl text-highlight-light">THIS IS THE WAY</p>
 		</div>
 	</div>
-</section>
+</div>
 <!-- END MARQUEE -->
 <!-- PROCESS -->
 <?php
@@ -61,10 +57,10 @@ $servicesProcess = get_field('services_process');
 if ($servicesProcess): ?>
 <section class="services-process mb-2">
 	<div class="card card--primary flex flex-col gap-4 mb-2">
-		<h2 class="heading-xxl text-highlight">
+		<h2 class="heading-xxl text-highlight reveal-text on-scroll">
 			<?php echo esc_html($servicesProcess['services_process_title']); ?>
 		</h2>
-		<h3 class="heading-l text-secondary">
+		<h3 class="heading-l text-secondary reveal-text on-scroll">
 			<?php echo esc_html($servicesProcess['services_process_subtitle']); ?>
 		</h3>
 	</div>
@@ -117,11 +113,11 @@ if ($servicesOffers): ?>
 <section class="services-offers">
 	<div class="card card--primary">
 		<div class="subtitle flex items-center justify-between mb-4">
-            <p class="subtitle__text"><?php echo esc_html($servicesOffers['services_offers_subtitle']); ?></p>
-            <div class="tag tag--primary"><?php echo esc_html($servicesOffers['services_offers_tag']); ?></div>
+            <p class="subtitle__text reveal-text on-scroll"><?php echo esc_html($servicesOffers['services_offers_subtitle']); ?></p>
+            <div class="tag tag--primary scale-up on-scroll"><?php echo esc_html($servicesOffers['services_offers_tag']); ?></div>
         </div>
 		<div class="flex flex-col md:flex-row gap-2">
-			<h3 class="heading-xxl text-highlight flex-1">
+			<h3 class="heading-xxl text-highlight flex-1 reveal-text on-scroll">
 				<?php echo esc_html($servicesOffers['services_offers_title']); ?>
 			</h3>
 			<?php

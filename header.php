@@ -13,8 +13,10 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'antialiased p-2 overflow-x-hidden' ); ?>>
+<body <?php body_class( 'antialiased p-2' ); ?>>
+<div class="page-transition-overlay"></div>
 <?php wp_body_open(); ?>
+<?php include get_theme_file_path('mobile-drawer.php'); ?>
 
 <?php
 	$header = get_field('header', 'option');
@@ -23,17 +25,17 @@
 	$project_count  = isset($project_counts->publish) ? $project_counts->publish : 0;
 
 	if( $header ): ?>
-<header class="header p-2 rounded-2xl flex justify-between items-center z-50">
+<header class="header p-2 rounded-2xl flex justify-between items-center">
 	<div class="flex items-center header__left gap-2">
-		<a class="header__logo" href="<?php echo home_url(); ?>">
+		<a class="header__logo scale-up immediate" href="<?php echo home_url(); ?>">
 			<img src="<?php echo $header['header_logo']['url']; ?>" alt="<?php echo $header['header_logo']['alt']; ?>"/>
 		</a>
-		<p class="body-s text-secondary w-[40%]">
+		<p class="body-s text-secondary w-[40%] blur-text-block immediate">
 			<?php echo $header['header_text']; ?>
 		</p>
 	</div>
 
-	<div class="header__center hidden md:flex gap-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+	<div class="header__center hidden md:flex gap-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-text-block immediate">
 		<?php foreach( $header['header_links'] as $item ):
 			$url   = $item['header_links_item']['url'];
 			$title = $item['header_links_item']['title'];
@@ -44,7 +46,7 @@
 		?>
 			<a href="<?php echo esc_url($url); ?>"
 			target="<?php echo esc_attr($target); ?>"
-			class="btn--link body-m text-primary p-2 relative">
+			class="btn--link body-m text-primary px-2 relative">
 				<?php echo esc_html($title); ?>
 
 				<?php if ( strtolower($title) === 'projects' && $count > 0 ): ?>
@@ -56,7 +58,7 @@
 		<?php endforeach; ?>
 	</div>
 
-	<a href="<?php echo esc_url($header['header_cta']['url']); ?>" class="btn--primary hidden md:flex">
+	<a href="<?php echo esc_url($header['header_cta']['url']); ?>" class="btn--primary hidden md:flex scale-up immediate">
 		<?php echo esc_html($header['header_cta']['title']); ?>
 		<img src="<?php echo THEME_IMG_PATH; ?>/arrow-up-right.svg" alt="Arrow up icon"/>
 	</a>
@@ -82,4 +84,4 @@
 </header>
 <?php endif; ?>
 
-<main role="main">
+<main id="page-container" role="main">

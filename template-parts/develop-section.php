@@ -6,10 +6,10 @@ if ($develop): ?>
 <section class="develop-section flex flex-col gap-2">
 	<!-- DEVELOP SECTION SUBTITLE -->
 	<div class="subtitle-light flex items-center justify-between">
-		<p class="subtitle-light__text">
+		<p class="subtitle-light__text reveal-text on-scroll">
 			<?php echo esc_html($develop['develop_subtitle']); ?>
 		</p>
-		<div class="tag tag--primary">
+		<div class="tag tag--primary scale-up on-scroll">
 			<?php echo esc_html($develop['develop_subtitle_tag']); ?>
 		</div>
 	</div>
@@ -28,16 +28,16 @@ if ($develop): ?>
 			if ( ! $image ) continue;
 
 			$classes = match($style) {
-				'square'    => 'flex-[calc(50%-0.5rem)] aspect-square', // 0.5rem = gap-2
-				'full_vh'   => 'w-full h-screen',
-				'full_auto' => 'w-full h-auto',
-				default     => 'w-full h-auto'
+				'square'    => 'flex-[calc(50%-0.5rem)] aspect-square overflow-hidden rounded-2xl', // 0.5rem = gap-2
+				'full_vh'   => 'w-full h-screen overflow-hidden rounded-2xl',
+				'full_auto' => 'w-full h-auto overflow-hidden rounded-2xl',
+				default     => 'w-full h-auto overflow-hidden rounded-2xl'
 			};
 		?>
 			<div class="<?php echo esc_attr($classes); ?>">
 			<img src="<?php echo esc_url($image['url']); ?>"
 				alt="<?php echo esc_attr($image['alt']); ?>"
-				class="w-full h-full object-cover rounded-2xl">
+				class="w-full h-full object-cover zoom-on-scroll">
 			</div>
 		<?php endforeach; ?>
 	<?php endif; ?>
@@ -56,14 +56,14 @@ if ($develop): ?>
 		<div class="card card--primary aspect-square flex flex-col justify-between flex-1">
 			<div class="research-cards__head">
 				<?php if ($number): ?>
-					<p class="heading-xl text-highlight"><?php echo esc_html($number); ?></p>
+					<p class="heading-xl text-highlight stat-number"><?php echo esc_html($number); ?></p>
 				<?php endif; ?>
 				<?php if ($subtitle): ?>
-					<p class="heading-s text-highlight"><?php echo esc_html($subtitle); ?></p>
+					<p class="heading-s text-highlight reveal-text on-scroll"><?php echo esc_html($subtitle); ?></p>
 				<?php endif; ?>
 			</div>
 			<?php if ($text): ?>
-				<div class="list body-m text-highlight">
+				<div class="list body-m text-highlight blur-text-block on-scroll">
 					<?php echo wp_kses_post($text); ?>
 			</div>
 			<?php endif; ?>

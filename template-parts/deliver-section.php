@@ -5,17 +5,17 @@ if ($deliver): ?>
 <section class="deliver-section flex flex-col gap-2">
 	<!-- DELIVER SECTION SUBTITLE -->
 	<div class="subtitle-light flex items-center justify-between">
-		<p class="subtitle-light__text">
+		<p class="subtitle-light__text reveal-text on-scroll">
 			<?php echo esc_html($deliver['deliver_subtitle']); ?>
 		</p>
-		<div class="tag tag--primary">
+		<div class="tag tag--primary scale-up on-scroll">
 			<?php echo esc_html($deliver['deliver_subtitle_tag']); ?>
 		</div>
 	</div>
 	<!-- END DELIVER SECTION SUBTITLE -->
 	<!-- DELIVER SECTION KEYSTATS -->
 	<div class="card card--primary flex flex-col md:flex-row gap-4">
-		<h2 class="heading-xl text-highlight flex-1">
+		<h2 class="heading-xl text-highlight flex-1 reveal-text on-scroll">
 			<?php echo esc_html($deliver['deliver_keystats_title']); ?>
 		</h2>
 		<?php
@@ -30,10 +30,10 @@ if ($deliver): ?>
 			?>
 			<div class="card card--keystat aspect-square flex flex-col justify-between">
 				<?php if ($number): ?>
-					<p class="heading-l text-highlight"><?php echo esc_html($number); ?></p>
+					<p class="heading-l text-highlight stat-number"><?php echo esc_html($number); ?></p>
 				<?php endif; ?>
 				<?php if ($text): ?>
-					<p class="body-m text-highlight"><?php echo esc_html($text); ?></p>
+					<p class="body-m text-highlight blur-text-block on-scroll"><?php echo esc_html($text); ?></p>
 				<?php endif; ?>
 			</div>
 			<?php endforeach; ?>

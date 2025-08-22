@@ -12,7 +12,7 @@ if ($query->have_posts()) :
 		<!-- Featured Image -->
 		<?php if (has_post_thumbnail()) : ?>
 			<?php the_post_thumbnail('medium', [
-			'class' => 'card--work--img absolute inset-0 w-full h-full object-cover z-10'
+			'class' => 'card--work--img absolute inset-0 w-full h-full object-cover z-10 zoom-on-scroll'
 			]); ?>
 		<?php endif; ?>
 

@@ -5,7 +5,6 @@
 ?>
 
 <?php get_header(); ?>
-<?php include get_theme_file_path('mobile-drawer.php'); ?>
 
 <!-- INTRO -->
 <?php
@@ -18,12 +17,12 @@ if ($aboutIntro): ?>
         <div class="flex flex-col justify-between h-full gap-4">
             <div>
                 <div class="subtitle flex items-center justify-between">
-                    <p class="subtitle__text"><?php echo esc_html($aboutIntro['about_intro_subtitle']); ?></p>
-                    <div class="tag tag--primary"><?php echo esc_html($aboutIntro['about_intro_subtitle_tag']); ?></div>
+                    <p class="subtitle__text reveal-text immediate"><?php echo esc_html($aboutIntro['about_intro_subtitle']); ?></p>
+                    <div class="tag tag--primary scale-up immediate"><?php echo esc_html($aboutIntro['about_intro_subtitle_tag']); ?></div>
                 </div>
-                <h1 class="heading-xxl text-highlight"><?php echo esc_html($aboutIntro['about_intro_title']); ?></h1>
+                <h1 class="heading-xxl text-highlight reveal-text immediate"><?php echo esc_html($aboutIntro['about_intro_title']); ?></h1>
             </div>
-            <a href="<?php echo esc_url($aboutIntro['about_intro_cta']['url']); ?>" class="btn--primary md:w-fit">
+            <a href="<?php echo esc_url($aboutIntro['about_intro_cta']['url']); ?>" class="btn--primary md:w-fit scale-up immediate">
                 <?php echo esc_html($aboutIntro['about_intro_cta']['title']); ?>
                 <img src="<?php echo THEME_IMG_PATH; ?>/arrow-up-right.svg" alt="Arrow up icon"/>
             </a>
@@ -31,8 +30,8 @@ if ($aboutIntro): ?>
     </div>
 
     <div class="card card--primary flex flex-col md:flex-row md:w-[70%] gap-8">
-        <img class="w-16 h-16 image-spin" src="<?php echo esc_url($aboutIntro['about_intro_icon']['url']); ?>" alt="<?php echo esc_attr($aboutIntro['about_intro_icon']['alt']); ?>"/>
-        <div class="body-m text-highlight"><?php echo wp_kses_post($aboutIntro['about_intro_text']); ?></div>
+        <img class="w-16 h-16 image-spin scale-up immediate" src="<?php echo esc_url($aboutIntro['about_intro_icon']['url']); ?>" alt="<?php echo esc_attr($aboutIntro['about_intro_icon']['alt']); ?>"/>
+        <div class="body-m text-highlight blur-text immediate"><?php echo wp_kses_post($aboutIntro['about_intro_text']); ?></div>
     </div>
 
 </div>
@@ -44,18 +43,18 @@ if ($aboutIntro): ?>
 $aboutGallery = get_field('about_gallery');
 
 if ($aboutGallery && !empty($aboutGallery['about_gallery_list'])): ?>
-<div class="about-gallery relative mb-2">
-    <div class="swiper about-gallery-swiper">
-        <div class="swiper-wrapper">
-            <?php foreach ($aboutGallery['about_gallery_list'] as $item):
-                $image = $item['about_gallery_list_item'];
-                if ($image): ?>
-                    <div class="swiper-slide w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-2xl overflow-hidden flex-shrink-0">
-                        <img class="w-full h-full object-cover" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>
-                    </div>
-                <?php endif;
-            endforeach; ?>
-        </div>
+<div class="about-gallery relative mb-2 overflow-x-hidden">
+    <div class="marquee-track gap-2">
+        <?php foreach ($aboutGallery['about_gallery_list'] as $item):
+            $image = $item['about_gallery_list_item'];
+            if ($image): ?>
+                <div class="marquee-item w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-2xl overflow-hidden flex-shrink-0">
+                    <img class="w-full h-full object-cover"
+                         src="<?php echo esc_url($image['url']); ?>"
+                         alt="<?php echo esc_attr($image['alt']); ?>"/>
+                </div>
+            <?php endif;
+        endforeach; ?>
     </div>
 </div>
 <?php endif; ?>
@@ -72,10 +71,10 @@ if ($aboutGallery && !empty($aboutGallery['about_gallery_list'])): ?>
     <div class="card card--primary flex flex-col md:w-1/2 gap-8">
         <div class="flex flex-col gap-4">
             <div class="subtitle flex items-center justify-between">
-                <p class="subtitle__text"><?php echo esc_html($aboutExperiences['about_experiences_subtitle']); ?></p>
-                <div class="tag tag--primary"><?php echo esc_html($aboutExperiences['about_experiences_subtitle_tag']); ?></div>
+                <p class="subtitle__text reveal-text on-scroll"><?php echo esc_html($aboutExperiences['about_experiences_subtitle']); ?></p>
+                <div class="tag tag--primary scale-up on-scroll"><?php echo esc_html($aboutExperiences['about_experiences_subtitle_tag']); ?></div>
             </div>
-            <h1 class="heading-xxl text-highlight"><?php echo esc_html($aboutExperiences['about_experiences_title']); ?></h1>
+            <h1 class="heading-xxl text-highlight reveal-text on-scroll"><?php echo esc_html($aboutExperiences['about_experiences_title']); ?></h1>
         </div>
 
         <?php if (!empty($aboutExperiences['about_experiences_list'])):
@@ -87,7 +86,7 @@ if ($aboutGallery && !empty($aboutGallery['about_gallery_list'])): ?>
                 $company_title = $company['title'] ?? '';
                 $company_target = $company['target'] ?? '_self';
         ?>
-            <div class="experiences-item flex flex-col md:flex-row gap-2">
+            <div class="experiences-item flex flex-col md:flex-row gap-2 blur-text-block on-scroll">
                 <?php if ($date): ?>
                     <div class="tag tag--primary"><?php echo esc_html($date); ?></div>
                 <?php endif; ?>
@@ -123,10 +122,10 @@ if ($aboutGallery && !empty($aboutGallery['about_gallery_list'])): ?>
 		<div class="card card--primary flex flex-col gap-8 flex-1 w-full">
 			<div class="flex flex-col gap-4">
 				<div class="subtitle flex items-center justify-between">
-					<p class="subtitle__text"><?php echo esc_html($aboutStudies['about_studies_subtitle']); ?></p>
-					<div class="tag tag--primary"><?php echo esc_html($aboutStudies['about_studies_subtitle_tag']); ?></div>
+					<p class="subtitle__text reveal-text on-scroll"><?php echo esc_html($aboutStudies['about_studies_subtitle']); ?></p>
+					<div class="tag tag--primary scale-up on-scroll"><?php echo esc_html($aboutStudies['about_studies_subtitle_tag']); ?></div>
 				</div>
-				<h1 class="heading-xxl text-highlight"><?php echo esc_html($aboutStudies['about_studies_title']); ?></h1>
+				<h1 class="heading-xxl text-highlight reveal-text on-scroll"><?php echo esc_html($aboutStudies['about_studies_title']); ?></h1>
 			</div>
 
 			<?php if (!empty($aboutStudies['about_studies_list'])):
@@ -138,7 +137,7 @@ if ($aboutGallery && !empty($aboutGallery['about_gallery_list'])): ?>
 					$company_title = $company['title'] ?? '';
 					$company_target = $company['target'] ?? '_self';
 			?>
-				<div class="experiences-item flex flex-col md:flex-row gap-2">
+				<div class="experiences-item flex flex-col md:flex-row gap-2 blur-text-block on-scroll">
 					<?php if ($date): ?>
 						<div class="tag tag--primary"><?php echo esc_html($date); ?></div>
 					<?php endif; ?>
@@ -172,10 +171,10 @@ if ($aboutGallery && !empty($aboutGallery['about_gallery_list'])): ?>
 		<div class="card card--primary flex flex-col gap-8 flex-1 w-full">
 			<div class="flex flex-col gap-4">
 				<div class="subtitle flex items-center justify-between">
-					<p class="subtitle__text"><?php echo esc_html($aboutTalks['about_talks_subtitle']); ?></p>
-					<div class="tag tag--primary"><?php echo esc_html($aboutTalks['about_talks_subtitle_tag']); ?></div>
+					<p class="subtitle__text reveal-text on-scroll"><?php echo esc_html($aboutTalks['about_talks_subtitle']); ?></p>
+					<div class="tag tag--primary scale-up on-scroll"><?php echo esc_html($aboutTalks['about_talks_subtitle_tag']); ?></div>
 				</div>
-				<h1 class="heading-xxl text-highlight"><?php echo esc_html($aboutTalks['about_talks_title']); ?></h1>
+				<h1 class="heading-xxl text-highlight reveal-text on-scroll"><?php echo esc_html($aboutTalks['about_talks_title']); ?></h1>
 			</div>
 
 			<?php if (!empty($aboutTalks['about_talks_list'])):
@@ -187,7 +186,7 @@ if ($aboutGallery && !empty($aboutGallery['about_gallery_list'])): ?>
 					$company_title = $company['title'] ?? '';
 					$company_target = $company['target'] ?? '_self';
 			?>
-				<div class="experiences-item flex flex-col md:flex-row gap-2">
+				<div class="experiences-item flex flex-col md:flex-row gap-2 blur-text-block on-scroll">
 					<?php if ($date): ?>
 						<div class="tag tag--primary"><?php echo esc_html($date); ?></div>
 					<?php endif; ?>

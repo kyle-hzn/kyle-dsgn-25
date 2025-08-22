@@ -1,7 +1,14 @@
 import './mobile-drawer.js';
-import './swiper-marquees.js';
+import './marquee.js';
 import './timezone.js';
 import './custom-cursor.js';
 import './header-scroll.js';
 import './accordions.js';
 import './contact-form.js';
+import './image-spin.js';
+import './text-reveal.js';
+import './blur-text.js';
+import './scale-up.js';
+import './page-transition.js';
+import './image-zoom.js';
+import './stat-number.js';

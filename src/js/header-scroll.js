@@ -1,47 +1,44 @@
-// Header scroll functionality
-let lastScrollTop = 0;
-const header = document.querySelector('.header');
-const scrollThreshold = 50; // Reduced threshold for more responsive behavior
+import { gsap } from "gsap";
 
-function handleHeaderScroll() {
-  const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+let lastScroll = 0;
+let header = null;
 
-  // Only trigger if we've scrolled more than the threshold
-  if (Math.abs(currentScrollTop - lastScrollTop) < scrollThreshold) {
+function initHeaderScroll() {
+  header = document.querySelector('.header');
+
+  if (!header) {
+    console.warn('Header element not found');
     return;
   }
 
-  if (currentScrollTop > lastScrollTop && currentScrollTop > 50) {
-    // Scrolling down and past initial 50px - hide header
-    header.style.transform = 'translateY(calc(-100% - 8px))';
-    header.style.transition = 'transform 0.3s ease-in-out';
+
+  // Initialize header position with GSAP
+  gsap.set(header, { y: 0 });
+
+  // Add scroll event listener
+  window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+// Wait for DOM to be ready and find header
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeaderScroll);
+} else {
+  // DOM is already ready
+  initHeaderScroll();
+}
+
+function handleScroll() {
+  if (!header) return;
+
+  const st = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (st > lastScroll && st > 50) {
+    // Scroll down → hide
+    gsap.to(header, { y: "-120%", duration: 0.3, ease: "power2.out" });
   } else {
-    // Scrolling up - show header
-    header.style.transform = 'translateY(0)';
-    header.style.transition = 'transform 0.3s ease-in-out';
+    // Scroll up → show
+    gsap.to(header, { y: "0%", duration: 0.3, ease: "power2.out" });
   }
 
-  lastScrollTop = currentScrollTop;
+  lastScroll = st;
 }
-
-// Throttle the scroll event for better performance
-let ticking = false;
-function requestTick() {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      handleHeaderScroll();
-      ticking = false;
-    });
-    ticking = true;
-  }
-}
-
-// Add scroll event listener
-window.addEventListener('scroll', requestTick, { passive: true });
-
-// Show header when at top of page
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset <= 50) {
-    header.style.transform = 'translateY(0)';
-  }
-}, { passive: true });

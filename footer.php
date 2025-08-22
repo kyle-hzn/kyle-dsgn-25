@@ -16,10 +16,10 @@
 <footer class="footer flex flex-col gap-6 p-6 md:p-8 overflow-x-hidden">
 	<div class="footer__head flex flex-col md:flex-row justify-between items-start gap-6">
 		<div class="flex flex-col gap-2 md:w-[40%]">
-			<h4 class="heading-l text-highlight-light">
+			<h4 class="heading-l text-highlight-light reveal-text on-scroll">
 				<?php echo $footer['footer_text']; ?>
 			</h4>
-			<a href="<?php echo esc_url($footer['footer_cta']['url']); ?>" class="btn--primary md:w-fit">
+			<a href="<?php echo esc_url($footer['footer_cta']['url']); ?>" class="btn--primary md:w-fit scale-up on-scroll">
 				<?php echo esc_html($footer['footer_cta']['title']); ?>
 				<img src="<?php echo THEME_IMG_PATH; ?>/arrow-up-right.svg" alt="Arrow up icon"/>
 			</a>
@@ -28,7 +28,7 @@
 			<?php foreach( $footer['footer_primary_links'] as $item ): ?>
 				<a href="<?php echo esc_url($item['footer_primary_links_item']['url']); ?>"
 				target="<?php echo esc_attr($item['footer_primary_links_item']['target']); ?>"
-				class="btn--link body-m text-highlight-light p-2">
+				class="btn--link body-m text-highlight-light px-2 blur-text on-scroll">
 					<?php echo esc_html($item['footer_primary_links_item']['title']); ?>
 				</a>
 			<?php endforeach; ?>
@@ -39,30 +39,17 @@
 				if( $link ): ?>
 					<a href="<?php echo esc_url( $link['url'] ); ?>"
 					<?php if ( $link['target'] ) : ?> target="<?php echo esc_attr( $link['target'] ); ?>"<?php endif; ?>
-					class="btn--link body-m text-highlight-light p-2">
+					class="btn--link body-m text-highlight-light px-2 blur-text on-scroll">
 						<?php echo esc_html( $link['title'] ); ?>
 					</a>
 				<?php endif;
 			endforeach; ?>
 		</div>
-		<img class="w-24 h-24 image-spin" src="<?php echo $footer['footer_jabba']['url']; ?>" alt="<?php echo $footer['footer_jabba']['alt']; ?>"/>
+		<img class="w-24 h-24 image-spin scale-up on-scroll" src="<?php echo $footer['footer_jabba']['url']; ?>" alt="<?php echo $footer['footer_jabba']['alt']; ?>"/>
 	</div>
-	<div class="brand-marquee">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<p class="hp-hero__marquee__title heading-xxl text-highlight-light">KYLE-DSGN</p>
-			</div>
-			<div class="swiper-slide">
-				<p class="hp-hero__marquee__title heading-xxl text-highlight-light">KYLE-DSGN</p>
-			</div>
-			<div class="swiper-slide">
-				<p class="hp-hero__marquee__title heading-xxl text-highlight-light">KYLE-DSGN</p>
-			</div>
-			<div class="swiper-slide">
-				<p class="hp-hero__marquee__title heading-xxl text-highlight-light">KYLE-DSGN</p>
-			</div>
-		</div>
-	</div>
+	<!-- BRAND MARQUEE -->
+	<?php get_template_part( 'template-parts/brand-marquee' ); ?>
+	<!-- END BRAND MARQUEE -->
 	<div class="flex flex-row justify-between items-center">
 		<p class="body-s text-highlight-light">
 			<?php echo $footer['footer_disclaimer']; ?>

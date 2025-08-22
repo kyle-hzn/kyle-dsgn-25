@@ -1,18 +1,3 @@
 .about-gallery {
 	width: 100%;
-
-	.swiper {
-		overflow: hidden; // Move this to the actual swiper container
-	}
-
-	.swiper-wrapper {
-		transition-timing-function: linear;
-	}
-
-	.swiper-slide {
-		align-items: center;
-		display: flex;
-		flex-shrink: 0;
-		justify-content: center;
-	}
 }

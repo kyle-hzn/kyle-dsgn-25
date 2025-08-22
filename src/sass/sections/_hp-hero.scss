@@ -3,38 +3,29 @@
 }
 
 .brand-marquee {
-	.swiper-wrapper {
-		transition-timing-function: linear; // smooth animation
-	}
-}
-
-.swiper {
 	overflow: hidden;
 	width: 100%;
 }
 
-.swiper-wrapper {
+.marquee-track {
 	display: flex;
+	white-space: nowrap;
 }
 
-.swiper-slide {
-	align-items: center;
-	display: flex;
-	flex-shrink: 0;
-	justify-content: center;
-	width: auto; // slides size themselves naturally
+.marquee-item {
+	flex: 0 0 auto;
 }
 
-.image-spin {
-	animation: spin 5s linear infinite;
-}
+// .image-spin {
+// 	animation: spin 5s linear infinite;
+// }
 
-@keyframes spin {
-	from {
-		transform: rotate(0deg);
-	}
+// @keyframes spin {
+// 	from {
+// 		transform: rotate(0deg);
+// 	}
 
-	to {
-		transform: rotate(-360deg);
-	}
-}
+// 	to {
+// 		transform: rotate(-360deg);
+// 	}
+// }

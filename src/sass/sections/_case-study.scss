@@ -3,5 +3,9 @@
 .project-intro {
 	position: sticky;
 	top: 8px;
+	transform: none;
 
+	@media (max-width: 767px) {
+		position: unset;
+	}
 }

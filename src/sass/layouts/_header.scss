@@ -1,14 +1,25 @@
 @use '../global' as *;
 
 .header {
+	backface-visibility: hidden; // Prevent flickering during animations
 	background-color: $surface-background;
-	left: 0;
 	left: 8px;
-	position: fixed;
+	max-width: calc(100vw - 16px); // Ensure it doesn't exceed viewport width
+	opacity: 1 !important;
+	pointer-events: auto; // Ensure header is interactive
+	position: fixed !important;
 	right: 8px;
 	top: 8px;
-	transition: transform 0.3s ease-in-out;
-	z-index: 1000;
+	visibility: visible !important;
+	width: calc(100vw - 16px); // Account for body padding
+	will-change: transform; // Optimize for animations
+	z-index: 50;
+	/* Ensure header is always above page transition overlay */
+	&:hover {
+		z-index: 10001 !important;
+	}
+
+
 
 	&__logo {
 		background-color: $surface-primary;
@@ -26,7 +37,7 @@
 		padding: 2px 12px;
 		position: absolute;
 		right: -8px;
-		top: 0;
+		top: -8px;
 	}
 
 	&__badge-mobile {
