@@ -7,7 +7,7 @@
 			<?php echo esc_html($statusCard['hp_hero_location']); ?> <span class="body-m text-highlight time"></span>
 		</p>
 		<?php if ( !empty($statusCard['hp_hero_availability']) && $statusCard['hp_hero_availability'] ) : ?>
-			<p class="body-m text-highlight blur-text-block immediate">
+			<p class="status-card__avb body-m text-highlight blur-text-block immediate">
 				<span class="body-m-bold text-highlight">Available</span> for freelance projects
 			</p>
 		<?php else : ?>

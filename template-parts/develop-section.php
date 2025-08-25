@@ -55,7 +55,7 @@ if ($develop): ?>
 		?>
 		<div class="card card--primary aspect-square flex flex-col justify-between flex-1">
 			<div class="research-cards__head">
-				<?php if ($number): ?>
+				<?php if ($number !== ''): ?>
 					<p class="heading-xl text-highlight stat-number"><?php echo esc_html($number); ?></p>
 				<?php endif; ?>
 				<?php if ($subtitle): ?>

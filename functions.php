@@ -127,3 +127,4 @@ function kyle_dsgn_allow_svg_upload( $mimes ) {
     return $mimes;
 }
 add_filter( 'upload_mimes', 'kyle_dsgn_allow_svg_upload' );
+

@@ -19,7 +19,7 @@
 			<h4 class="heading-l text-highlight-light reveal-text on-scroll">
 				<?php echo $footer['footer_text']; ?>
 			</h4>
-			<a href="<?php echo esc_url($footer['footer_cta']['url']); ?>" class="btn--primary md:w-fit scale-up on-scroll">
+			<a href="<?php echo esc_url($footer['footer_cta']['url']); ?>" class="btn--primary w-full md:w-fit scale-up on-scroll">
 				<?php echo esc_html($footer['footer_cta']['title']); ?>
 				<img src="<?php echo THEME_IMG_PATH; ?>/arrow-up-right.svg" alt="Arrow up icon"/>
 			</a>

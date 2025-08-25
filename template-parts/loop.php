@@ -1,6 +1,7 @@
 <?php
 $args = [
 	'post_type'      => 'post',
+	'order'      => 'desc',
 	'posts_per_page' => 6,
 ];
 $query = new WP_Query($args);

@@ -3,6 +3,7 @@
 .header {
 	backface-visibility: hidden; // Prevent flickering during animations
 	background-color: $surface-background;
+	border: 1px solid $graphic-default;
 	left: 8px;
 	max-width: calc(100vw - 16px); // Ensure it doesn't exceed viewport width
 	opacity: 1 !important;

@@ -4027,6 +4027,12 @@ gsapWithCSS.core.Tween;
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".header__mobile-btn button");
   const drawer = document.querySelector(".mobile-drawer");
+  if (!menuBtn || !drawer) {
+    if (!document.body.classList.contains("single") && !document.body.classList.contains("single-post")) {
+      console.warn("Mobile drawer elements not found");
+    }
+    return;
+  }
   gsapWithCSS.set(drawer, { x: "100%" });
   menuBtn.addEventListener("click", () => {
     const open = menuBtn.getAttribute("aria-expanded") === "true";
@@ -4045,6 +4051,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 document.querySelectorAll(".brand-marquee, .partners-marquee, .about-gallery").forEach((marquee) => {
   const track = marquee.querySelector(".marquee-track");
+  if (!track) {
+    console.warn("Marquee track not found in:", marquee);
+    return;
+  }
   track.innerHTML += track.innerHTML;
   const distance = track.scrollWidth / 2;
   gsapWithCSS.to(track, {
@@ -4076,26 +4086,40 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 const cursor = document.querySelector(".custom-cursor");
 const cards = document.querySelectorAll(".card--work");
-const cursorX = gsapWithCSS.quickTo(cursor, "left", { duration: 0.2, ease: "power3.out" });
-const cursorY = gsapWithCSS.quickTo(cursor, "top", { duration: 0.2, ease: "power3.out" });
-document.addEventListener("mousemove", (e) => {
-  cursorX(e.clientX - 32);
-  cursorY(e.clientY - 32);
-});
-cards.forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    cursor.classList.add("active");
+if (!cursor) {
+  if (!document.body.classList.contains("single") && !document.body.classList.contains("single-post")) {
+    console.warn("Custom cursor element not found");
+  }
+} else {
+  const cursorX = gsapWithCSS.quickTo(cursor, "left", { duration: 0.2, ease: "power3.out" });
+  const cursorY = gsapWithCSS.quickTo(cursor, "top", { duration: 0.2, ease: "power3.out" });
+  document.addEventListener("mousemove", (e) => {
+    cursorX(e.clientX - 32);
+    cursorY(e.clientY - 32);
   });
-  card.addEventListener("mouseleave", () => {
-    cursor.classList.remove("active");
+}
+if (cards.length > 0) {
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      if (cursor) {
+        cursor.classList.add("active");
+      }
+    });
+    card.addEventListener("mouseleave", () => {
+      if (cursor) {
+        cursor.classList.remove("active");
+      }
+    });
   });
-});
+}
 let lastScroll = 0;
 let header = null;
 function initHeaderScroll() {
   header = document.querySelector(".header");
   if (!header) {
-    console.warn("Header element not found");
+    if (!document.body.classList.contains("single") && !document.body.classList.contains("single-post")) {
+      console.warn("Header element not found");
+    }
     return;
   }
   gsapWithCSS.set(header, { y: 0 });
@@ -6659,6 +6683,21 @@ function animateStatNumbers() {
     return;
   elements.forEach((el) => {
     const fullText = el.textContent.trim();
+    if (fullText === "0") {
+      el.textContent = "0";
+      el.style.filter = "blur(3px)";
+      gsapWithCSS.to(el, {
+        filter: "blur(0px)",
+        duration: 1,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none"
+        }
+      });
+      return;
+    }
     const match = fullText.match(/^(\D*)([\d,.]+)(.*)$/);
     if (!match)
       return;
@@ -6667,6 +6706,9 @@ function animateStatNumbers() {
     const target = parseFloat(numberPart);
     if (isNaN(target))
       return;
+    if (target === 0) {
+      el.textContent = `${prefix}0${suffix}`;
+    }
     const obj = { value: 0 };
     el.style.filter = "blur(3px)";
     gsapWithCSS.to(obj, {
@@ -6675,9 +6717,14 @@ function animateStatNumbers() {
       // faster count-up
       ease: "power1.out",
       onUpdate() {
-        const val = Math.floor(obj.value).toLocaleString();
+        let val;
+        if (target === 0) {
+          val = "0";
+        } else {
+          val = Math.floor(obj.value).toLocaleString();
+        }
         el.textContent = `${prefix}${val}${suffix}`;
-        const progress = obj.value / target;
+        const progress = target === 0 ? 1 : obj.value / target;
         el.style.filter = `blur(${3 * (1 - progress)}px)`;
       },
       scrollTrigger: {

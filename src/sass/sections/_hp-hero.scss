@@ -1,3 +1,5 @@
+@use '../global' as *;
+
 .hp-hero__marquee__title {
 	line-height: 72px;
 }
@@ -14,6 +16,30 @@
 
 .marquee-item {
 	flex: 0 0 auto;
+}
+
+.status-card {
+	&__avb {
+		position: relative;
+
+		&::before {
+			animation: blink infinite 1s;
+			background-color: $surface-success;
+			border-radius: 50%;
+			content: '';
+			height: 10px;
+			left: -20px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 10px;
+		}
+	}
+}
+
+@keyframes blink {
+	from { opacity: 0%; }
+	to   { opacity: 100%; }
 }
 
 // .image-spin {

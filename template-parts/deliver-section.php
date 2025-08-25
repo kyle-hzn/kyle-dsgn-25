@@ -2,6 +2,7 @@
 $deliver = get_field('deliver');
 
 if ($deliver): ?>
+
 <section class="deliver-section flex flex-col gap-2">
 	<!-- DELIVER SECTION SUBTITLE -->
 	<div class="subtitle-light flex items-center justify-between">
@@ -29,7 +30,7 @@ if ($deliver): ?>
 				$text   = $keystat['deliver_keystat_card_text'] ?? '';
 			?>
 			<div class="card card--keystat aspect-square flex flex-col justify-between">
-				<?php if ($number): ?>
+				<?php if ($number !== ''): ?>
 					<p class="heading-l text-highlight stat-number"><?php echo esc_html($number); ?></p>
 				<?php endif; ?>
 				<?php if ($text): ?>
@@ -41,5 +42,22 @@ if ($deliver): ?>
 		<?php endif; ?>
 	</div>
 	<!-- END DELIVER SECTION KEYSTATS -->
+	<!-- TESTIMONIAL -->
+	<?php if (!empty($deliver['deliver_testimonial']) || !empty($deliver['deliver_testimonial_author'])): ?>
+	<div class="card card--primary flex flex-col gap-2">
+		<?php if (!empty($deliver['deliver_testimonial'])): ?>
+		<p class="heading-s text-highlight reveal-text on-scroll">
+			<?php echo esc_html($deliver['deliver_testimonial']); ?>
+		</p>
+		<?php endif; ?>
+		<?php if (!empty($deliver['deliver_testimonial_author'])): ?>
+		<p class="body-m text-highlight blur-text-block on-scroll">
+			<?php echo esc_html($deliver['deliver_testimonial_author']); ?>
+		</p>
+		<?php endif; ?>
+	</div>
+	<?php endif; ?>
+	<!-- END TESTIMONIAL -->
 </section>
+
 <?php endif; ?>

@@ -24,6 +24,7 @@
 	$project_counts = wp_count_posts('project');
 	$project_count  = isset($project_counts->publish) ? $project_counts->publish : 0;
 
+	// Show header on all pages
 	if( $header ): ?>
 <header class="header p-2 rounded-2xl flex justify-between items-center">
 	<div class="flex items-center header__left gap-2">

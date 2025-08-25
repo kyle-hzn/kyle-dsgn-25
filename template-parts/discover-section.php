@@ -2,6 +2,7 @@
 $discover = get_field('discover');
 
 if ($discover): ?>
+
 <section class="discover-section flex flex-col gap-2">
 	<!-- DISCOVERY SECTION SUBTITLE -->
 	<div class="subtitle-light flex items-center justify-between">
@@ -12,7 +13,7 @@ if ($discover): ?>
 			<?php echo esc_html($discover['discover_subtitle_tag']); ?>
 		</div>
 	</div>
-	<!-- DISCOVERY SECTION SUBTITLE -->
+	<!-- END DISCOVERY SECTION SUBTITLE -->
 	<!-- DISCOVERY SECTION KEYSTATS -->
 	<div class="card card--primary flex flex-col md:flex-row gap-4">
 		<h2 class="heading-xl text-highlight flex-1 reveal-text immediate overflow-hidden">
@@ -29,7 +30,7 @@ if ($discover): ?>
 				$text   = $keystat['discover_keystat_card_text'] ?? '';
 			?>
 			<div class="card card--keystat aspect-square flex flex-col justify-between">
-				<?php if ($number): ?>
+				<?php if ($number !== ''): ?>
 					<p class="heading-l text-highlight stat-number"><?php echo esc_html($number); ?></p>
 				<?php endif; ?>
 				<?php if ($text): ?>
@@ -60,7 +61,7 @@ if ($discover): ?>
 		?>
 		<div class="card card--primary aspect-square flex flex-col justify-between flex-1">
 			<div class="research-cards__head">
-				<?php if ($number): ?>
+				<?php if ($number !== ''): ?>
 					<p class="heading-xl text-highlight stat-number"><?php echo esc_html($number); ?></p>
 				<?php endif; ?>
 				<?php if ($subtitle): ?>
@@ -88,4 +89,5 @@ if ($discover): ?>
 	</div>
 	<!-- END TESTIMONIAL -->
 </section>
+
 <?php endif; ?>

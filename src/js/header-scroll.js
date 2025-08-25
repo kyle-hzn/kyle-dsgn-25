@@ -7,7 +7,10 @@ function initHeaderScroll() {
   header = document.querySelector('.header');
 
   if (!header) {
-    console.warn('Header element not found');
+    // Suppress warning on single posts where header is intentionally hidden
+    if (!document.body.classList.contains('single') && !document.body.classList.contains('single-post')) {
+      console.warn('Header element not found');
+    }
     return;
   }
 

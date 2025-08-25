@@ -5,6 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.header__mobile-btn button');
   const drawer = document.querySelector('.mobile-drawer');
 
+  // Check if required elements exist
+  if (!menuBtn || !drawer) {
+    // Suppress warning on single posts where header is intentionally hidden
+    if (!document.body.classList.contains('single') && !document.body.classList.contains('single-post')) {
+      console.warn('Mobile drawer elements not found');
+    }
+    return;
+  }
+
   // Ensure drawer starts hidden
   gsap.set(drawer, { x: '100%' });
 

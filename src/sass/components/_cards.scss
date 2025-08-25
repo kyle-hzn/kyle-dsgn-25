@@ -4,9 +4,9 @@
 	border: 1px solid $graphic-default;
 	border-radius: 16px;
 	box-sizing: border-box;
-	padding: 32px;
+	padding: 40px;
 	@media (max-width: 767px) {
-		padding: 16px;
+		padding: 24px;
 	}
 
 	&--primary {
@@ -90,7 +90,7 @@
 }
 
 .card--work--overlay {
-	background: $surface-primary;
+	background: $surface-background-80;
 	clip-path: circle(0% at 50% 50%);
 	inset: 0;
 	pointer-events: none;

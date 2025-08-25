@@ -39,11 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showOverlay() {
+  const overlay = document.querySelector('.page-transition-overlay');
+  if (!overlay) return;
+  
   document.body.classList.add('no-scroll');
-  document.querySelector('.page-transition-overlay').style.pointerEvents = 'auto';
+  overlay.style.pointerEvents = 'auto';
 }
 
 function hideOverlay() {
+  const overlay = document.querySelector('.page-transition-overlay');
+  if (!overlay) return;
+  
   document.body.classList.remove('no-scroll');
-  document.querySelector('.page-transition-overlay').style.pointerEvents = 'none';
+  overlay.style.pointerEvents = 'none';
 }
