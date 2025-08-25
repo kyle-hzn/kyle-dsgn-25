@@ -11,7 +11,7 @@
 $aboutIntro = get_field('about_intro');
 
 if ($aboutIntro): ?>
-<div class="about-intro flex flex-col md:flex-row gap-2 mb-2 mt-[80px]">
+<div class="about-intro flex flex-col md:flex-row gap-2 mt-[80px]">
 
     <div class="card card--primary flex flex-col md:w-[30%] gap-4">
         <div class="flex flex-col justify-between h-full gap-4">
